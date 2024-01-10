@@ -137,6 +137,23 @@ written correctly.
 12. **User input**
     - [Terminal input](src/user_input/test_input.py) (`input` statement)
 
+### Progress Table for Learning Python
+
+| Session | Progress |
+|-|:-:|
+|Getting Started|✅|
+|Operators|✅|
+|Data Types|   |
+|Control Flow|   |
+|Functions|   |
+|Classes|   |
+|Modules|   |
+|Erros and Exceptions|   |
+|Files|   |
+|Additions|   |
+|Brief Tour of the Standard Libraries|   |
+|User input|✅|
+
 ## Prerequisites
 
 **Installing Python**
