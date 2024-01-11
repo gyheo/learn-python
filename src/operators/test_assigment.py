@@ -12,6 +12,8 @@ def test_assignment_operator():
     # Assignment: =
     number = 5
     assert number == 5
+    number = 6
+    assert number != 5
 
     # Multiple assignment.
     # The variables first_variable and second_variable simultaneously get the new values 0 and 1.
@@ -67,6 +69,8 @@ def test_augmented_assignment_operators():
     number = 5
     number **= 3
     assert number == 125
+    number //= 5
+    assert number == 25
 
     # Assignment: &=
     number = 5  # 0b0101

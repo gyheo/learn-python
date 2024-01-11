@@ -16,6 +16,8 @@ def test_comparison_operators():
     # Not equal.
     number = 5
     assert number != 3
+    number = 3
+    assert number == 3
 
     # Greater than.
     number = 5

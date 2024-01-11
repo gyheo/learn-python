@@ -23,3 +23,5 @@ def test_membership_operators():
 
     # Returns True because a sequence with the value "pineapple" is not in the list.
     assert "pineapple" not in fruit_list
+    # assert "grape" in fruit_list
+

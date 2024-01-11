@@ -12,10 +12,13 @@ def test_logical_operators():
     # Let's work with these number to illustrate logic operators.
     first_number = 5
     second_number = 10
+    third_number = 23
 
     # and
     # Returns True if both statements are true.
     assert first_number > 0 and second_number < 20
+
+    assert third_number > 22 and third_number < 24
 
     # or
     # Returns True if one of the statements is true
