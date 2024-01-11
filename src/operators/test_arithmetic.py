@@ -23,6 +23,7 @@ def test_arithmetic_operators():
     # Result of division is float number.
     assert 5 / 3 == 1.6666666666666667
     assert 8 / 4 == 2
+    assert 6 // 2 == 3
     assert isinstance(5 / 3, float)
     assert isinstance(8 / 4, float)
 
@@ -35,6 +36,7 @@ def test_arithmetic_operators():
     assert 2 ** 4 == 16
     assert 2 ** 5 == 32
     assert isinstance(5 ** 3, int)
+    assert isinstance(5 ** 5, int) is True
 
     # Floor division.
     assert 5 // 3 == 1

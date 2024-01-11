@@ -24,6 +24,7 @@ def test_bitwise_operators():
     # 5 = 0b0101
     # 3 = 0b0011
     assert 5 | 3 == 7  # 0b0111
+    assert 1 | 0 == 1
 
     # NOT
     # Inverts all the bits.

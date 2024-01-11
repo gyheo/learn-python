@@ -33,3 +33,6 @@ def test_identity_operators():
     # To demonstrate the difference between "is" and "==": this comparison returns True because
     # first_fruits_list is equal to second_fruits_list.
     assert first_fruits_list == second_fruits_list
+
+    third_fruits_list = second_fruits_list
+    assert third_fruits_list is not first_fruits_list
