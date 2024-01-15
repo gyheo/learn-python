@@ -143,7 +143,7 @@ written correctly.
 |-|:-:|
 |Getting Started|✅|
 |Operators|✅|
-|Data Types|   |
+|Data Types|✅|
 |Control Flow|   |
 |Functions|   |
 |Classes|   |
