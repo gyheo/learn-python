@@ -14,14 +14,18 @@ symmetric difference.
 def test_sets():
     """Sets"""
     fruits_set = {"apple", "banana", "cherry"}
+    numbers_set = 1, 2, 3
 
     assert isinstance(fruits_set, set)
+    assert isinstance(numbers_set, set)
 
     # It is also possible to use the set() constructor to make a set.
     # Note the double round-brackets
     fruits_set_via_constructor = set(("apple", "banana", "cherry"))
+    numbers_set_via_constructor = set((1, 2, 3))
 
     assert isinstance(fruits_set_via_constructor, set)
+    assert isinstance(numbers_set_via_constructor, set)
 
 
 def test_set_methods():
@@ -32,6 +36,8 @@ def test_set_methods():
     # You may check if the item is in set by using "in" statement
     assert "apple" in fruits_set
     assert "pineapple" not in fruits_set
+    assert "banana" in fruits_set
+    assert "strawberry" not in fruits_set
 
     # Use the len() method to return the number of items.
     assert len(fruits_set) == 3
@@ -40,9 +46,11 @@ def test_set_methods():
     fruits_set.add("pineapple")
     assert "pineapple" in fruits_set
     assert len(fruits_set) == 4
+    fruits_set.add("strawberry")
 
     # Use remove() method to remove an item.
     fruits_set.remove("pineapple")
+    fruits_set.remove("strawberry")
     assert "pineapple" not in fruits_set
     assert len(fruits_set) == 3
 

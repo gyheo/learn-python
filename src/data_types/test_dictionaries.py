@@ -28,6 +28,7 @@ def test_dictionary():
         'cherry': 'red',
         'apple': 'green',
         'banana': 'yellow',
+        'peach': 'pink'
     }
 
     assert isinstance(fruits_dictionary, dict)
@@ -36,10 +37,12 @@ def test_dictionary():
     assert fruits_dictionary['apple'] == 'green'
     assert fruits_dictionary['banana'] == 'yellow'
     assert fruits_dictionary['cherry'] == 'red'
+    assert fruits_dictionary['peach'] == 'pink'
 
     # To check whether a single key is in the dictionary, use the in keyword.
     assert 'apple' in fruits_dictionary
     assert 'pineapple' not in fruits_dictionary
+    assert 'peach' in fruits_dictionary
 
     # Change the apple color to "red".
     fruits_dictionary['apple'] = 'red'
@@ -50,19 +53,25 @@ def test_dictionary():
 
     # Performing list(d) on a dictionary returns a list of all the keys used in the dictionary,
     # in insertion order (if you want it sorted, just use sorted(d) instead).
-    assert list(fruits_dictionary) == ['cherry', 'apple', 'banana', 'pineapple']
-    assert sorted(fruits_dictionary) == ['apple', 'banana', 'cherry', 'pineapple']
+    assert list(fruits_dictionary) == ['cherry', 'apple', 'banana', 'peach', 'pineapple']
+    assert sorted(fruits_dictionary) == ['apple', 'banana', 'cherry', 'peach', 'pineapple']
 
     # It is also possible to delete a key:value pair with del.
+    del fruits_dictionary['peach']
     del fruits_dictionary['pineapple']
     assert list(fruits_dictionary) == ['cherry', 'apple', 'banana']
 
     # The dict() constructor builds dictionaries directly from sequences of key-value pairs.
     dictionary_via_constructor = dict([('sape', 4139), ('guido', 4127), ('jack', 4098)])
+    dictionary_number_via_constructor = dict([('one', 1), ('two', 2), ('three', 3)])
 
     assert dictionary_via_constructor['sape'] == 4139
     assert dictionary_via_constructor['guido'] == 4127
     assert dictionary_via_constructor['jack'] == 4098
+
+    assert dictionary_number_via_constructor['one'] == 1
+    assert dictionary_number_via_constructor['two'] == 2
+    assert dictionary_number_via_constructor['three'] == 3
 
     # In addition, dict comprehensions can be used to create dictionaries from arbitrary key
     # and value expressions:
@@ -70,6 +79,7 @@ def test_dictionary():
     assert dictionary_via_expression[2] == 4
     assert dictionary_via_expression[4] == 16
     assert dictionary_via_expression[6] == 36
+    assert 64 not in dictionary_via_expression
 
     # When the keys are simple strings, it is sometimes easier to specify pairs using
     # keyword arguments.

@@ -43,6 +43,7 @@ def test_list_type():
     cubes = [1, 8, 27, 65, 125]  # something's wrong here, the cube of 4 is 64!
     cubes[3] = 64  # replace the wrong value
     assert cubes == [1, 8, 27, 64, 125]
+    assert cubes[-1] == 125
 
     # You can also add new items at the end of the list, by using
     # the append() method
@@ -65,6 +66,9 @@ def test_list_type():
     letters = ['a', 'b', 'c', 'd']
     assert len(letters) == 4
 
+    letters.append('e')
+    assert len(letters) == 5
+
     # It is possible to nest lists (create lists containing other lists),
     # for example:
     list_of_chars = ['a', 'b', 'c']
@@ -73,6 +77,7 @@ def test_list_type():
     assert mixed_list == [['a', 'b', 'c'], [1, 2, 3]]
     assert mixed_list[0] == ['a', 'b', 'c']
     assert mixed_list[0][1] == 'b'
+    assert mixed_list[1][1] == int("2")
 
 
 def test_list_methods():
@@ -85,6 +90,9 @@ def test_list_methods():
     # Equivalent to a[len(a):] = [x].
     fruits.append('grape')
     assert fruits == ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana', 'grape']
+    fruits.append('strawberry')
+    assert fruits == ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana', 'grape', 'strawberry']
+    fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana', 'grape']
 
     # list.remove(x)
     # Remove the first item from the list whose value is equal to x.
@@ -163,6 +171,8 @@ def test_list_methods():
     assert fruits == ['grape', 'orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
     assert fruits.pop() == 'banana'
     assert fruits == ['grape', 'orange', 'apple', 'pear', 'banana', 'kiwi', 'apple']
+    assert fruits.pop() == 'apple'
+    assert len(fruits) == 6
 
     # list.clear()
     # Remove all items from the list. Equivalent to del a[:].
@@ -187,6 +197,9 @@ def test_del_statement():
     del numbers[2:4]
     assert numbers == [1, 66.25, 1234.5]
 
+    del numbers[1:]
+    assert numbers == [1]
+
     del numbers[:]
     assert numbers == []
 
@@ -196,6 +209,12 @@ def test_del_statement():
         # Referencing the name a hereafter is an error (at least until another
         # value is assigned to it).
         assert numbers == []  # noqa: F821
+
+    test_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    del test_numbers
+
+    with pytest.raises(Exception):
+        assert test_numbers == []
 
 
 def test_list_comprehensions():
@@ -270,6 +289,11 @@ def test_list_comprehensions():
     square_tuples = [(x, x ** 2) for x in range(6)]
     assert square_tuples == [(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
 
+    # Create a list of 2-tuples like (number, remainder by 10)
+    remainder_tuples = [(x, x % 10) for x in range (1, 10)]
+    assert remainder_tuples == [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5),
+                               (6, 6), (7, 7), (8, 8), (9, 9)]
+
     # Flatten a list using a listcomp with two 'for'.
     vector = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     flatten_vector = [num for elem in vector for num in elem]
@@ -289,6 +313,9 @@ def test_nested_list_comprehensions():
         [5, 6, 7, 8],
         [9, 10, 11, 12],
     ]
+
+    assert len(matrix) == 3
+    assert len(matrix[0]) == 4 and len(matrix[1]) == 4 and len(matrix[2]) == 4
 
     # The following list comprehension will transpose rows and columns:
     transposed_matrix = [[row[i] for row in matrix] for i in range(4)]
