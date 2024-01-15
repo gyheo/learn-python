@@ -25,6 +25,7 @@ def test_integer_numbers():
     assert isinstance(positive_integer, int)
     assert isinstance(negative_integer, int)
     assert isinstance(big_integer, int)
+    assert not isinstance(big_integer, float)
 
 
 def test_booleans():
@@ -50,6 +51,9 @@ def test_booleans():
     assert str(true_boolean) == "True"
     assert str(false_boolean) == "False"
 
+    assert 0 == False
+    assert 1 == True
+
 
 def test_float_numbers():
     """Float type
@@ -62,10 +66,12 @@ def test_float_numbers():
     # Another way of declaring float is using float() function.
     float_number_via_function = float(7)
     float_negative = -35.59
+    float_negative_via_function = float(-35.59)
 
     assert float_number == float_number_via_function
     assert isinstance(float_number, float)
     assert isinstance(float_number_via_function, float)
+    assert isinstance(float_negative_via_function, float)
     assert isinstance(float_negative, float)
 
     # Float can also be scientific numbers with an "e" to indicate
@@ -89,6 +95,10 @@ def test_complex_numbers():
     assert isinstance(complex_number_2, complex)
     assert complex_number_1 * complex_number_2 == 27 + 8j
 
+    complex_number_3 = 1 + 1j
+    complex_number_4 = 1 - 1j
+    assert complex_number_3 * complex_number_4 == 2
+
 
 def test_number_operators():
     """Basic operations"""
@@ -110,10 +120,12 @@ def test_number_operators():
 
     # Floor division discards the fractional part.
     assert 17 // 3 == 5
+    assert 17 % 3 == 2
 
     # Raising the number to specific power.
     assert 5 ** 2 == 25  # 5 squared
     assert 2 ** 7 == 128  # 2 to the power of 7
+    assert 4 ** 5 == 1024
 
     # There is full support for floating point; operators with
     # mixed type operands convert the integer operand to floating point.

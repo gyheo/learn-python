@@ -43,6 +43,7 @@ def test_string_type():
     # start from -1.
     word = 'Python'
     assert word[0] == 'P'  # First character.
+    assert word[2] == 't'  # Third character.
     assert word[5] == 'n'  # Fifth character.
     assert word[-1] == 'n'  # Last character.
     assert word[-2] == 'o'  # Second-last character.
@@ -67,6 +68,7 @@ def test_string_type():
     assert word[:2] == 'Py'  # Character from the beginning to position 2 (excluded).
     assert word[4:] == 'on'  # Characters from position 4 (included) to the end.
     assert word[-2:] == 'on'  # Characters from the second-last (included) to the end.
+    assert word[-3:] == 'hon'
 
     # One way to remember how slices work is to think of the indices as
     # pointing between characters, with the left edge of the first character
@@ -104,6 +106,9 @@ def test_string_type():
     characters = 'supercalifragilisticexpialidocious'
     assert len(characters) == 34
 
+    sentence = 'Hello GeonYeong'
+    assert len(sentence) == 15
+
     # String literals can span multiple lines. One way is using triple-quotes: """..."""
     # or '''...'''. End of lines are automatically included in the string, but it’s possible
     # to prevent this by adding a \ at the end of the line. The following example:
@@ -126,6 +131,7 @@ def test_string_operators():
     """
 
     assert 3 * 'un' + 'ium' == 'unununium'
+    assert 5 * 'a' == 'aaaaa'
 
     # 'Py' 'thon'
     python = 'Py' 'thon'
@@ -151,6 +157,8 @@ def test_string_methods():
     # The strip() method removes any whitespace from the beginning or the end.
     string_with_whitespaces = " Hello, World! "
     assert string_with_whitespaces.strip() == "Hello, World!"
+    assert string_with_whitespaces.rstrip() == " Hello, World!"
+    assert string_with_whitespaces.lstrip() == "Hello, World! "
 
     # The len() method returns the length of a string.
     assert len(hello_world_string) == 13
@@ -169,6 +177,7 @@ def test_string_methods():
 
     # Converts the first character to upper case
     assert 'low letter at the beginning'.capitalize() == 'Low letter at the beginning'
+    assert 'apple'.capitalize() == 'Apple'
 
     # Returns the number of times a specified value occurs in a string.
     assert 'low letter at the beginning'.count('t') == 4
@@ -185,6 +194,7 @@ def test_string_methods():
     # Joins the elements of an iterable to the end of the string.
     my_tuple = ('John', 'Peter', 'Vicky')
     assert ', '.join(my_tuple) == 'John, Peter, Vicky'
+    assert ' '.join(my_tuple) == 'John Peter Vicky'
 
     # Returns True if all characters in the string are upper case.
     assert 'ABC'.isupper()
@@ -243,7 +253,7 @@ def test_string_formatting():
 
     # The argument to repr() may be any Python object:
     assert repr((first_num, second_num, ('spam', 'eggs'))) == "(32.5, 40000, ('spam', 'eggs'))"
-
+    assert repr(first_num, second_num) == "(32.5, 40000)"
     # Formatted String Literals
 
     # Formatted string literals (also called f-strings for short) let you include the value of
@@ -260,11 +270,11 @@ def test_string_formatting():
     table_data = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 7678}
     table_string = ''
     for name, phone in table_data.items():
-        table_string += f'{name:7}==>{phone:7d}'
+        table_string += f'{name:7}==> {phone:7d}'
 
-    assert table_string == ('Sjoerd ==>   4127'
-                            'Jack   ==>   4098'
-                            'Dcab   ==>   7678')
+    assert table_string == ('Sjoerd ==>    4127'
+                            'Jack   ==>    4098'
+                            'Dcab   ==>    7678')
 
     # The String format() Method
 
@@ -294,6 +304,14 @@ def test_string_formatting():
     )
 
     assert formatted_string == 'The story of Bill, Manfred, and Georg.'
+
+    formatted_string2 = 'The story of {}, {}, and {}.'.format(
+        'Bill',
+        'Manfred',
+        'Georg'
+    )
+
+    assert formatted_string2 == 'The story of Bill, Manfred, and Georg.'
 
     # If you have a really long format string that you don’t want to split up, it would be nice if
     # you could reference the variables to be formatted by name instead of by position. This can be

@@ -28,6 +28,9 @@ def test_tuples():
         # pylint: disable=unsupported-assignment-operation
         fruits_tuple[0] = "pineapple"
 
+    with pytest.raises(Exception):
+        fruits_tuple[1] = "grape"
+
     # It is also possible to use the tuple() constructor to make a tuple (note the double
     # round-brackets).
     # The len() function returns the length of the tuple.
@@ -39,6 +42,9 @@ def test_tuples():
     # It is also possible to omit brackets when initializing tuples.
     another_tuple = 12345, 54321, 'hello!'
     assert another_tuple == (12345, 54321, 'hello!')
+
+    other_tuple = 1, 2, 3, 4
+    assert other_tuple == (1, 2, 3, 4)
 
     # Tuples may be nested:
     nested_tuple = another_tuple, (1, 2, 3, 4, 5)
