@@ -10,7 +10,7 @@ def test_break_statement():
     """BREAK statement"""
 
     # Let's terminate the loop in case if we've found the number we need in a range from 0 to 100.
-    number_to_be_found = 42
+    number_to_be_found = 55
     # This variable will record how many time we've entered the "for" loop.
     number_of_iterations = 0
 
@@ -22,4 +22,4 @@ def test_break_statement():
             number_of_iterations += 1
 
     # We need to make sure that break statement has terminated the loop once it found the number.
-    assert number_of_iterations == 42
+    assert number_of_iterations == 55
