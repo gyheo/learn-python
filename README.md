@@ -139,20 +139,20 @@ written correctly.
 
 ### Progress Table for Learning Python
 
-| Session | Progress |
-|-|:-:|
-|Getting Started|✅|
-|Operators|✅|
-|Data Types|✅|
-|Control Flow|   |
-|Functions|   |
-|Classes|   |
-|Modules|   |
-|Erros and Exceptions|   |
-|Files|   |
-|Additions|   |
-|Brief Tour of the Standard Libraries|   |
-|User input|✅|
+| # | Session | Progress |
+|-|-|:-:|
+|1|Getting Started|✅|
+|2|Operators|✅|
+|3|Data Types|✅|
+|4|Control Flow|✅|
+|5|Functions|   |
+|6|Classes|   |
+|7|Modules|   |
+|8|Erros and Exceptions|   |
+|9|Files|   |
+|10|Additions|   |
+|11|Brief Tour of the Standard Libraries|   |
+|12|User input|✅|
 
 ## Prerequisites
 
