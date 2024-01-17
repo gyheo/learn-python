@@ -57,6 +57,8 @@ def test_for_statement():
         concatenated_string += words[word_index] + ' '
 
     assert concatenated_string == 'Mary had a little lamb '
+    word_sentence = ' '.join(words)
+    assert word_sentence == 'Mary had a little lamb' and word_sentence == concatenated_string.rstrip()
 
     # Or simply use enumerate().
     concatenated_string = ''
@@ -71,13 +73,13 @@ def test_for_statement():
     knights_names = []
     knights_properties = []
 
-    knights = {'gallahad': 'the pure', 'robin': 'the brave'}
+    knights = {'gallahad': 'the pure', 'robin': 'the brave', 'tony': 'popular'}
     for key, value in knights.items():
         knights_names.append(key)
         knights_properties.append(value)
 
-    assert knights_names == ['gallahad', 'robin']
-    assert knights_properties == ['the pure', 'the brave']
+    assert knights_names == ['gallahad', 'robin', 'tony']
+    assert knights_properties == ['the pure', 'the brave', 'popular']
 
     # When looping through a sequence, the position index and corresponding value can be retrieved
     # at the same time using the enumerate() function
@@ -123,6 +125,7 @@ def test_range_function():
     """
 
     assert list(range(5)) == [0, 1, 2, 3, 4]
+    assert list(range(1, 5)) == [1, 2, 3, 4]
 
     # The given end point is never part of the generated sequence; range(10) generates 10 values,
     # the legal indices for items of a sequence of length 10. It is possible to let the range start
@@ -131,4 +134,5 @@ def test_range_function():
 
     assert list(range(5, 10)) == [5, 6, 7, 8, 9]
     assert list(range(0, 10, 3)) == [0, 3, 6, 9]
+    assert list(range(0, 11, 2)) == [x for x in range(0, 11, 2)]
     assert list(range(-10, -100, -30)) == [-10, -40, -70]

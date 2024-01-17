@@ -29,3 +29,12 @@ def test_while_statement():
 
     # 2^5 = 32
     assert result == 32
+
+    result = 1
+    power = 1
+
+    while power <= 5:
+        result *= number
+        power += 1
+    
+    assert result == 32

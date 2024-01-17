@@ -22,7 +22,9 @@ def test_if_statement():
         conclusion = 'Number equals to zero'
     elif number < 1:
         conclusion = 'Number is greater than zero but less than one'
+    elif number == 15:
+        conclusion = "Number is equal to 15"
     else:
         conclusion = 'Number bigger than or equal to one'
 
-    assert conclusion == 'Number bigger than or equal to one'
+    assert conclusion == 'Number is equal to 15'

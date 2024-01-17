@@ -21,6 +21,7 @@ def test_try():
 
     try:
         # pylint: disable=undefined-variable
+        print(not_exist_var)
         print(not_existing_variable)
     except NameError:
         exception_has_been_caught = True
@@ -55,12 +56,14 @@ def test_try():
     # The finally block, if specified, will be executed regardless if the try block raises an
     # error or not.
     message = ''
+    number = 0
     try:
         # pylint: undefined-variable
         print(not_existing_variable)  # noqa: F821
+        number += 10
     except NameError:
         message += 'Something went wrong.'
     finally:
-        message += 'The "try except" is finished.'
+        message += f'The "try except" is finished. {number}'
 
-    assert message == 'Something went wrong.The "try except" is finished.'
+    assert message == 'Something went wrong.The "try except" is finished. 0'

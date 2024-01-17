@@ -27,3 +27,7 @@ def test_continue_statement():
 
     assert even_numbers == [0, 2, 4, 6, 8]
     assert rest_of_the_numbers == [1, 3, 5, 7, 9]
+    
+    total_numbers = even_numbers + rest_of_the_numbers
+    total_numbers.sort()
+    assert total_numbers == [x for x in range(0, 10)]
