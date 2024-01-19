@@ -68,6 +68,11 @@ def test_function_scopes():
         global test_variable
         test_variable = 'global value'
         return test_variable
+    
+    def declare_global():
+        global test_variable
+        test_variable = 'declare global value'
+        return test_variable
 
     # On this level currently we have access to local for test_function_scopes() function variable.
     assert test_variable == 'initial value inside test function'
@@ -89,6 +94,9 @@ def test_function_scopes():
     do_global()
     assert test_variable == 'nonlocal value'
 
+    declare_global()
+    assert test_variable == 'nonlocal value'
+
 
 def test_global_variable_access():
     """Testing global variable access from within a function"""
@@ -97,7 +105,7 @@ def test_global_variable_access():
     # test so let's check that.
     # pylint: disable=global-statement
     global test_variable
-    assert test_variable == 'global value'
+    assert test_variable == 'declare global value'
 
     # On this example you may see how accessing and changing global variables from within inner
     # functions might make debugging more difficult and code to be less predictable. Since you

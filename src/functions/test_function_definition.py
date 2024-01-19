@@ -69,8 +69,10 @@ def test_function_definition():
         return 'Hello, ' + name
 
     greet_someone = greet
+    greet_python = greet
 
     assert greet_someone('John') == 'Hello, John'
+    assert greet_python('Python') == 'Hello, Python'
 
     # Define functions inside other functions.
 

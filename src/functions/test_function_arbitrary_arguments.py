@@ -18,9 +18,9 @@ def test_function_arbitrary_arguments():
     def test_function(first_param, *arguments):
         """This function accepts its arguments through "arguments" tuple"""
         assert first_param == 'first param'
-        assert arguments == ('second param', 'third param')
+        assert arguments == ('second param', 'third param', 'fourth param')
 
-    test_function('first param', 'second param', 'third param')
+    test_function('first param', 'second param', 'third param', 'fourth param')
 
     # Normally, these variadic arguments will be last in the list of formal parameters, because
     # they scoop up all remaining input arguments that are passed to the function. Any formal
@@ -31,3 +31,4 @@ def test_function_arbitrary_arguments():
 
     assert concat('earth', 'mars', 'venus') == 'earth/mars/venus'
     assert concat('earth', 'mars', 'venus', sep='.') == 'earth.mars.venus'
+    assert concat('earth', 'mars', 'venus', sep='-') == 'earth-mars-venus'
