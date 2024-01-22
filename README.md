@@ -140,15 +140,15 @@ written correctly.
 ### Progress Table for Learning Python
 
 | # | Session | Progress |
-|-|-|:-:|
+|:-:|-|:-:|
 |1|Getting Started|✅|
 |2|Operators|✅|
 |3|Data Types|✅|
 |4|Control Flow|✅|
-|5|Functions|   |
+|5|Functions|✅|
 |6|Classes|   |
 |7|Modules|   |
-|8|Erros and Exceptions|   |
+|8|Errors and Exceptions|   |
 |9|Files|   |
 |10|Additions|   |
 |11|Brief Tour of the Standard Libraries|   |
