@@ -38,6 +38,7 @@ def test_function_keyword_arguments():
     assert parrot(1000) == message
     # 1 keyword argument
     assert parrot(voltage=1000) == message
+    assert parrot(voltage=1100) != message
 
     message = (
         "This parrot wouldn't VOOOOOM if you put 1000000 volts through it. "
@@ -56,6 +57,7 @@ def test_function_keyword_arguments():
         "It's bereft of life!"
     )
     assert parrot(1000000, 'bereft of life', 'jump') == message
+    assert parrot(1000000, action='jump', state='bereft of life') == message
 
     # 1 positional, 1 keyword
     message = (

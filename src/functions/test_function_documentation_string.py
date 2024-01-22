@@ -23,6 +23,10 @@ def do_nothing():
     pass
 
 
+def pass_function():
+    pass
+
+
 def test_function_documentation_string():
     """Test documentation string."""
 

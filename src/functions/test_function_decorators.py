@@ -43,7 +43,12 @@ def test_function_decorators():
     def greeting_with_p(name):
         return "Hello, {0}!".format(name)
 
+    @decorate_with_p
+    def paragraph(sentence):
+        return "{}".format(sentence)
+
     assert greeting_with_p('John') == '<p>Hello, John!</p>'
+    assert paragraph('paragraph') == "<p>paragraph</p>"
 
     # Now let's consider we wanted to decorate our greeting function by one more functions to wrap a
     # div the string output.
@@ -85,7 +90,8 @@ def test_function_decorators():
 
     @tags('div')
     @tags('p')
+    @tags('b')
     def greeting_with_tags(name):
         return "Hello, {0}!".format(name)
 
-    assert greeting_with_tags('John') == '<div><p>Hello, John!</p></div>'
+    assert greeting_with_tags('John') == '<div><p><b>Hello, John!</b></p></div>'
