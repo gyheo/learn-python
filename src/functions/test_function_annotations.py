@@ -21,7 +21,12 @@ def breakfast(ham: str, eggs: str = 'eggs') -> str:
     return ham + ' and ' + eggs
 
 
+def dinner(name: str, place: str = 'restaurant', people_number: int = 5) -> str:
+    return name, ' and ', place, ' and ', people_number
+
+
 def test_function_annotations():
     """Function Annotations."""
 
     assert breakfast.__annotations__ == {'eggs': str, 'ham': str, 'return': str}
+    assert dinner.__annotations__ == {'name': str, 'place': str, 'people_number': int, 'return': str}

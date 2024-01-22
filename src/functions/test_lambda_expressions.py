@@ -25,10 +25,19 @@ def test_lambda_expressions():
     assert increment_function(0) == 42
     assert increment_function(1) == 43
     assert increment_function(2) == 44
+    
+    def make_decrement_function(alpha):
+        return lambda number: number - alpha
+    
+    decrement_function = make_decrement_function(114)
+
+    assert decrement_function(0) == -114
+    assert decrement_function(114) == 0
 
     # Another use of lambda is to pass a small function as an argument.
-    pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+    pairs = [(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
     # Sort pairs by text key.
-    pairs.sort(key=lambda pair: pair[1])
+    pairs.sort(key=lambda pair: pair[0])
 
-    assert pairs == [(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+    # assert pairs == [(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+    assert pairs == [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
