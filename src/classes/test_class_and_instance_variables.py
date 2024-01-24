@@ -39,6 +39,7 @@ def test_class_and_instance_variables():
     class DogWithSharedTricks:
         """Dog class example with wrong shared variable usage"""
         tricks = []  # Mistaken use of a class variable (see below) for mutable objects.
+        behavior = {}
 
         def __init__(self, name):
             self.name = name  # Instance variable unique to each instance.
@@ -50,14 +51,24 @@ def test_class_and_instance_variables():
             """
             self.tricks.append(trick)
 
+        def add_behavior(self, key, value):
+            self.behavior[key] = value
+
     fido = DogWithSharedTricks('Fido')
     buddy = DogWithSharedTricks('Buddy')
 
     fido.add_trick('roll over')
+    fido.behavior["sleep"] = "zzz"
     buddy.add_trick('play dead')
+    buddy.behavior["bite"] = "growl"
 
     assert fido.tricks == ['roll over', 'play dead']  # unexpectedly shared by all dogs
     assert buddy.tricks == ['roll over', 'play dead']  # unexpectedly shared by all dogs
+    assert len(fido.behavior) == 2
+    assert list(fido.behavior.keys()) == ["sleep", "bite"]
+    assert list(fido.behavior.values()) == ["zzz", "growl"]
+    assert list(buddy.behavior.keys()) == ["sleep", "bite"]
+    assert list(buddy.behavior.values()) == ["zzz", "growl"]
 
     # Correct design of the class should use an instance variable instead:
 
@@ -68,6 +79,7 @@ def test_class_and_instance_variables():
         def __init__(self, name):
             self.name = name  # Instance variable unique to each instance.
             self.tricks = []  # creates a new empty list for each dog
+            self.behavior = {}
 
         def add_trick(self, trick):
             """Add trick to the dog
@@ -75,12 +87,19 @@ def test_class_and_instance_variables():
             This function illustrate a correct use of mutable class variable tricks (see below).
             """
             self.tricks.append(trick)
+        
+        def add_behavior(self, key, value):
+            self.behavior[key] = value
 
     fido = DogWithTricks('Fido')
     buddy = DogWithTricks('Buddy')
 
     fido.add_trick('roll over')
+    fido.add_behavior('sleep', 'zzz')
     buddy.add_trick('play dead')
+    buddy.add_behavior('bite', 'growl')
 
     assert fido.tricks == ['roll over']
     assert buddy.tricks == ['play dead']
+    assert len(fido.behavior) == 1
+    assert len(buddy.behavior) == 1

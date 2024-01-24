@@ -14,7 +14,7 @@ def test_multiple_inheritance():
     class Clock:
         """Clock class"""
 
-        time = '11:23 PM'
+        time = '01:14 PM'
 
         def get_time(self):
             """Get current time
@@ -27,7 +27,7 @@ def test_multiple_inheritance():
     class Calendar:
         """Calendar class"""
 
-        date = '12/08/2018'
+        date = '01/20/2024'
 
         def get_date(self):
             """Get current date
@@ -35,10 +35,21 @@ def test_multiple_inheritance():
             Method is hardcoded just for multiple inheritance illustration.
             """
             return self.date
+        
+    class Country:
+        """Country class"""
+        country = 'Korea'
+
+        def get_country(self):
+            """Get country
+
+            Method is hardcoded just for multiple inheritance illustration.
+            """
+            return self.country
 
     # Python supports a form of multiple inheritance as well. A class definition with multiple
     # base classes looks like this.
-    class CalendarClock(Clock, Calendar):
+    class CalendarClock(Country, Clock, Calendar):
         """Class that uses multiple inheritance.
 
         For most purposes, in the simplest cases, you can think of the search for attributes
@@ -64,5 +75,6 @@ def test_multiple_inheritance():
 
     calendar_clock = CalendarClock()
 
-    assert calendar_clock.get_date() == '12/08/2018'
-    assert calendar_clock.get_time() == '11:23 PM'
+    assert calendar_clock.get_date() == '01/20/2024'
+    assert calendar_clock.get_time() == '01:14 PM'
+    assert calendar_clock.get_country() == 'Korea'

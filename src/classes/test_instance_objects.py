@@ -26,5 +26,7 @@ def test_instance_objects():
 
     # pylint: disable=attribute-defined-outside-init
     dummy_instance.temporary_attribute = 1
+    dummy_instance.temporary_attribute2 = "instance objects"
     assert dummy_instance.temporary_attribute == 1
+    assert dummy_instance.temporary_attribute2 == "instance objects"
     del dummy_instance.temporary_attribute
