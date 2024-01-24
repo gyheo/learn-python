@@ -58,3 +58,7 @@ def test_method_objects():
 
     assert counter.get_counter() == 10
     assert MyCounter.get_counter(counter) == 10
+
+    counter.increment_counter()
+    assert counter.get_counter() == 11
+    assert MyCounter.get_counter(counter) == 11

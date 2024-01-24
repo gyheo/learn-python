@@ -21,6 +21,7 @@ def test_class_definition():
         This class contains two public methods and doesn't contain constructor.
         """
         name = 'user'
+        country = 'Korea'
 
         def say_hello(self):
             """Class method."""
@@ -32,6 +33,9 @@ def test_class_definition():
         def say_goodbye(self):
             """Class method."""
             return 'Goodbye ' + self.name
+        
+        def say_country(self):
+            return f"I'm from {self.country}"
 
     # When a class definition is entered, a new namespace is created, and used as the local scope —
     # thus, all assignments to local variables go into this new namespace. In particular, function
@@ -44,3 +48,4 @@ def test_class_definition():
 
     assert greeter.say_hello() == 'Hello user'
     assert greeter.say_goodbye() == 'Goodbye user'
+    assert greeter.say_country() == 'I\'m from Korea'

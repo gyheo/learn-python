@@ -47,6 +47,9 @@ class Employee(Person):
         """Get full employee id"""
         return self.get_name() + ', ' + self.staff_id
 
+    def get_staff_id(self):
+        return self.staff_id
+
 
 def test_inheritance():
     """Inheritance."""
@@ -57,10 +60,12 @@ def test_inheritance():
     # reference is valid if this yields a function object.
     person = Person('Bill')
     employee = Employee('John', 'A23')
+    employee2 = Employee('Peter', None)
 
     assert person.get_name() == 'Bill'
     assert employee.get_name() == 'John'
     assert employee.get_full_id() == 'John, A23'
+    assert employee2.get_staff_id() == None
 
     # Python has two built-in functions that work with inheritance:
     #
