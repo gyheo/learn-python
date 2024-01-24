@@ -146,7 +146,7 @@ written correctly.
 |3|Data Types|✅|
 |4|Control Flow|✅|
 |5|Functions|✅|
-|6|Classes|   |
+|6|Classes|✅|
 |7|Modules|   |
 |8|Errors and Exceptions|   |
 |9|Files|   |
