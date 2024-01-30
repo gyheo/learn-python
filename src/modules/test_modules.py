@@ -55,6 +55,7 @@ import fibonacci_module as fibonacci_module_renamed
 
 # It can also be used when utilising from with similar effects:
 from fibonacci_module import fibonacci_at_position as fibonacci_at_position_renamed
+from fibonacci_module import fibonacci_smaller_than as fibonacci_smller_than_renamed
 
 # When a module named spam is imported, the interpreter first searches for a built-in module with
 # that name. If not found, it then searches for a file named spam.py in a list of directories
@@ -66,12 +67,14 @@ from fibonacci_module import fibonacci_at_position as fibonacci_at_position_rena
 
 
 def test_modules():
+    import sys
     """Modules"""
 
     assert fibonacci_module.fibonacci_at_position(7) == 13
     assert fibonacci_at_position(7) == 13
     assert fibonacci_module_renamed.fibonacci_at_position(7) == 13
     assert fibonacci_at_position_renamed(7) == 13
+    assert fibonacci_smller_than_renamed(56) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 
     assert fibonacci_module.fibonacci_smaller_than(100) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
     assert fibonacci_smaller_than(100) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
@@ -95,3 +98,5 @@ def test_modules():
         'fibonacci_at_position',
         'fibonacci_smaller_than',
     ]
+
+    assert len(dir(sys)) == 92

@@ -37,7 +37,8 @@ def fibonacci_smaller_than(limit):
 # you can make the file usable as a script as well as an importable module, because the code that
 # parses the command line only runs if the module is executed as the “main” file:
 #
-# >>> python fibonacci.py 50
+# >>> python fibonacci_module.py 50
 if __name__ == '__main__':
     import sys
     print(fibonacci_smaller_than(int(sys.argv[1])))
+    print(fibonacci_at_position(int(sys.argv[1])))
