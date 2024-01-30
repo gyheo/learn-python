@@ -38,10 +38,11 @@ import sound_package.effects.echo
 # An alternative way of importing the submodule is:
 
 # pylint: disable=reimported
-from sound_package.effects import echo
+from sound_package.effects import echo, reverse
 
 # Yet another variation is to import the desired function or variable directly:
 from sound_package.effects.echo import echo_function
+from sound_package.effects.reverse import reverse_function
 
 # Note that when using from package import item, the item can be either a submodule (or subpackage)
 # of the package, or some other name defined in the package, like a function, class or variable.
@@ -59,3 +60,5 @@ def test_packages():
     assert sound_package.effects.echo.echo_function() == 'Do echo effect'
     assert echo.echo_function() == 'Do echo effect'
     assert echo_function() == 'Do echo effect'
+    assert reverse.reverse_function() == 'Do reverse effect'
+    assert reverse_function() == 'Do reverse effect'
