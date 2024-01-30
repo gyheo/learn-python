@@ -147,7 +147,7 @@ written correctly.
 |4|Control Flow|✅|
 |5|Functions|✅|
 |6|Classes|✅|
-|7|Modules|   |
+|7|Modules|✅|
 |8|Errors and Exceptions|   |
 |9|Files|   |
 |10|Additions|   |
