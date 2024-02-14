@@ -54,6 +54,19 @@ def test_handle_exceptions():
 
     assert exception_has_been_handled
 
+    # Let's simulate undefined variable access exception.
+    exception_has_been_handled = False
+    try:
+        # pylint: disable=undefined-variable
+        result = 4 + BMI * 3  # name 'spam' is not defined
+        # We should not get here at all.
+        assert result
+    except NameError:
+        # We should get here because of division by zero.
+        exception_has_been_handled = True
+
+    assert exception_has_been_handled
+
     # A try statement may have more than one except clause, to specify handlers for different
     # exceptions. At most one handler will be executed. Handlers only handle exceptions that occur
     # in the corresponding try clause, not in other handlers of the same try statement. An except
