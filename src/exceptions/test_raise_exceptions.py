@@ -39,10 +39,18 @@ def test_user_defined_exception():
             super().__init__(message)
             self.message = message
 
+    class MyError(Exception):
+        """Example of MyError exception."""
+        def __init__(self, message):
+            super().__init__(message)
+            self.message = message
+
     custom_exception_is_caught = False
 
     try:
         raise MyCustomError('My custom message')
+        # we should not get here at all.
+        raise MyError('My error message')
     except MyCustomError:
         custom_exception_is_caught = True
 
