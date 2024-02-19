@@ -75,3 +75,16 @@ def test_files_open():
     # Python’s garbage collector will eventually destroy the object and close the open file for you,
     # but the file may stay open for a while. Another risk is that different Python implementations
     # will do this clean-up at different times.
+
+    with open('src/files/multi_line_file2.txt', 'r') as file:
+        read_data = file.read()
+
+        assert read_data == (
+            'one\n'
+            'two\n'
+            'three\n'
+            'four\n'
+
+        )
+    
+    assert file.closed

@@ -11,6 +11,7 @@ def test_file_methods():
     """Methods of File Objects"""
 
     multi_line_file = open('src/files/multi_line_file.txt', 'r')
+    multi_line_file2 = open('src/files/multi_line_file2.txt', 'r')
     binary_file = open('src/files/binary_file', 'r')
 
     # To read a file’s contents, call f.read(size), which reads some quantity of data and returns
@@ -31,6 +32,8 @@ def test_file_methods():
     # and defaults to 0, using the beginning of the file as the reference point.
     assert binary_file.seek(0) == 0  # Go to the 0th byte in the file
     assert binary_file.seek(6) == 6  # Go to the 6th byte in the file
+    assert binary_file.seek(9) == 9
+    assert binary_file.seek(6) == 6
 
     assert binary_file.read(1) == '6'
 
@@ -45,6 +48,12 @@ def test_file_methods():
     assert multi_line_file.readline() == 'second line\n'
     assert multi_line_file.readline() == 'third line'
     assert multi_line_file.readline() == ''
+
+    assert multi_line_file2.readline() == 'one\n'
+    assert multi_line_file2.readline() == 'two\n'
+    assert multi_line_file2.readline() == 'three\n'
+    assert multi_line_file2.readline() == 'four\n'
+    assert multi_line_file2.readline() == ''
 
     multi_line_file.close()
     binary_file.close()
