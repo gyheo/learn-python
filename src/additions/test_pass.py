@@ -44,3 +44,6 @@ class MyEmptyClass:
     "Pass" is commonly used for creating minimal classes like current one.
     """
     pass
+
+class MyTestClass:
+    pass

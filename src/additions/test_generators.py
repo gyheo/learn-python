@@ -26,8 +26,12 @@ def lottery():
     for _ in range(3):
         yield random.randint(1, 10)
 
-    # returns a 4th number between 10 and 20
-    yield random.randint(10, 20)
+    # returns a 4th number between 10 and 30
+    yield random.randint(10, 30)
+
+
+def random_generator():
+    yield random.randint(1, 5)
 
 
 def test_generators():
@@ -36,4 +40,9 @@ def test_generators():
         if number_index < 3:
             assert 0 <= random_number <= 10
         else:
-            assert 10 <= random_number <= 20
+            assert 10 <= random_number <= 30
+
+    for number in enumerate(random_generator()):
+        # returns tuple
+        result = list(number)
+        assert len(result) > 1
