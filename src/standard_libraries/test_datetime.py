@@ -28,7 +28,13 @@ def test_datetime():
     ) == '08-29-18. 29 Aug 2018 is a Wednesday on the 29 day of August.'
 
     # Dates support calendar arithmetic.
-    birthday = date(1964, 7, 31)
-    age = fake_now - birthday
+    birthday = date(1993, 1, 14)
 
-    assert age.days == 19752
+    assert birthday.year == 1993
+    assert birthday.month == 1
+    assert birthday.day == 14
+    assert birthday.ctime() == 'Thu Jan 14 00:00:00 1993'
+
+    age = real_now - birthday
+
+    assert age.days == 11366

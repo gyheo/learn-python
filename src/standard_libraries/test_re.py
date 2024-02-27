@@ -23,3 +23,4 @@ def test_re():
     # When only simple capabilities are needed, string methods are preferred because they are
     # easier to read and debug:
     assert 'tea for too'.replace('too', 'two') == 'tea for two'
+    assert 'foo var'.replace('var', 'variance') == 'foo variance'
