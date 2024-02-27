@@ -17,6 +17,7 @@ def test_math():
     """
     assert math.cos(math.pi / 4) == 0.70710678118654757
     assert math.log(1024, 2) == 10.0
+    assert math.pow(2, 10) == 1024
 
 
 def test_random():
@@ -56,3 +57,4 @@ def test_statistics():
     assert statistics.mean(data) == 1.6071428571428572
     assert statistics.median(data) == 1.25
     assert statistics.variance(data) == 1.3720238095238095
+    assert statistics.stdev(data) == math.sqrt(statistics.variance(data))
