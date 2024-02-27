@@ -151,7 +151,7 @@ written correctly.
 |8|Errors and Exceptions|✅|
 |9|Files|✅|
 |10|Additions|✅|
-|11|Brief Tour of the Standard Libraries|   |
+|11|Brief Tour of the Standard Libraries|✅|
 |12|User input|✅|
 
 ## Prerequisites
